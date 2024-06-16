@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../frontend/react_app/src/Views/Sidemenu/Sidemenu.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--0IMPORTANDO BOXICONS-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>APC</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <!-- <i class='bx bxl-c-plus-plus'></i> -->
+                <!-- <div class="logo_name">Apc</div> -->
+            </div>
+            <i class='bx bx-book-content' id="btn" ></i>
+        </div>
+
+        <!-- BOTONES PARA ACCEDER A LAS SECTIONS -->
+        <ul class="nav_list">
+            <li>
+                <a href="">
+                    <i class='bx bx-home' ></i>
+                    <span class="links_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+
+
+            <li>
+                <a href="">
+                    <i class="bx bx-grid-alt"></i>
+                    <span class="links_name">Insumos</span>
+                </a>
+                <span class="tooltip">Insumos</span>
+            </li>
+
+
+            <li>
+                <a href="">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Settings</span>
+                </a>
+                <span class="tooltip"> Settings</span>
+            </li>
+        </ul>
+
+        <!-- EN ESTA ZONA EL PERFIL Y LA INFORMACION ACERCA DE SU PLAN ESTARÁ DISPONIBLE -->
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="../foto-test.png" alt="profile-img"-->
+                    <div class="name_job">
+                        <div class="name">LuisM</div>
+                        <div class="job">Plan actual: Basic</div>
+                    </div>
+                </div>
+                <i class='bx bxs-bolt' style='color:#484646' id="log_out" ></i>
+            </div>
+        </div>
+    </div>
+        
+    <!-- CREANDO LA SECTION HOME  EN EL CUAL CONTENDRÁ LOS PROYECTOS INICIADOS -->
+    <section class="home_content" role="main">
+        <div class="text">Home Content</div>
+        <div id="get-string"></div>
+    </section>
+</body>
+<!-- CREO SCRIPT PARA HACER QUE EL SIDEMENU SE PUEDA EXPANDER -->
+<script src="/public/js/main_sidemenu.js"></script> 
+</html>
