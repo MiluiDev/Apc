@@ -35,7 +35,7 @@ const createWindow = () => {
 
 
 app.on('ready', () => {
-    // Iniciar el servidor FastAPI
+    // Iniciar el servidor FastAPI **PYTHON**
     fastapiProcess = spawn('uvicorn', ['app.main:app', '--host', '127.0.0.1', '--port', '5000'], {
         env: { ...process.env, PYTHONPATH: './fastapi' },
         stdio: 'inherit'
