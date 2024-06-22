@@ -1,0 +1,23 @@
+
+/* SE AÑADEN ESOS ATRIBUTOS PARA QUE SE PUEDA MANEJAR TODO EL CONTENIDO DENTRO DE LA SECTION HOME CONTENT SIN PROBLEMA */
+/*  OJO: SE DEBE APLICAR LO MISMO PARA CADA SECTION*/
+.home_content{
+    position: absolute; /* cada section debe tener un nombreSection_content*/
+    height: 100%;
+    width: calc(100% - 78px);
+    left: 78px;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active ~ .home_content{
+    width: calc(100% - 240px);
+    left:240px;
+}
+
+
+.home_content .text{
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+    margin: 12px; 
+}

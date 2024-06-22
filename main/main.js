@@ -25,9 +25,9 @@ const createWindow = () => {
             contextIsolation: false,
             },
     });
-    // win.loadFile(path.join(__dirname, '..','frontend','react_app','build','index.html')) //esto es para cuando quiera ver el proyecto en produccion
+    win.loadFile(path.join(__dirname, '..','frontend','react_app','build','index.html')) //esto es para cuando quiera ver el proyecto en produccion
     // win.loadFile(path.join(viewsDir, 'main.html')); //esto se hace si quiero cargar los archivos locales.
-    win.loadURL('http://localhost:3000') //esto es para cuando se quieran abrir los puertos en para react.
+    // win.loadURL('http://localhost:3000') //esto es para cuando se quieran abrir los puertos en para react.
     win.webContents.openDevTools();
     
 };
