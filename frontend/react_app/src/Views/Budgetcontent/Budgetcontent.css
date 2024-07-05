@@ -1,0 +1,143 @@
+.projects_content {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 78px);
+    left: 78px;
+    transition: all 0.5s ease;
+    background-color: #f8f8f8; /* Fondo claro */
+    color: #333; /* Texto oscuro */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.sidebar.active ~ .projects_content {
+    width: calc(100% - 240px);
+    left: 240px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-family: 'Arial', sans-serif;
+    font-weight: normal;
+}
+
+.create_button {
+    background-color: green;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search_section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.select_all {
+    margin-right: 10px;
+}
+
+.filters, .actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.group_by, .filter, .search_input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search_input {
+    width: 200px;
+}
+
+.budget_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.budget_item {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+    gap: 10px; /* Espacio entre el checkbox y el resto del contenido */
+}
+
+.budget_item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project_details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permitir que este div ocupe el espacio disponible */
+}
+
+.project_name {
+    font-weight: bold;
+}
+
+.client_name {
+    font-size: 14px;
+    color: #777;
+}
+
+.project_meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.project_status {
+    font-size: 14px;
+    color: #777;
+}
+
+.project_type {
+    font-size: 14px;
+    color: green;
+}
+
+.select_project {
+    flex-shrink: 0; /* Evitar que el checkbox cambie de tamaño */
+}
+
+.actions .action_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.actions .action-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    padding:2px;
+}
+
+.actions .action_button:hover .action-icon {
+    fill: #555; /* Cambia el color al hacer hover según tus preferencias */
+}

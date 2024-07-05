@@ -8,7 +8,6 @@
     left: 78px;
     transition: all 0.5s ease;
 }
-
 .sidebar.active ~ .home_content{
     width: calc(100% - 240px);
     left:240px;

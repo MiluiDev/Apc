@@ -1,6 +1,7 @@
 import React,{ useEffect } from 'react';
 import './Sidemenu.css'
 import profileimg from '../../assets/img/foto-test.png'
+import { Link } from 'react-router-dom';
 
 
 function Sidemenu() {
@@ -44,18 +45,18 @@ function Sidemenu() {
       {/* BOTONES PARA ACCEDER A LAS SECTIONS */}
       <ul className="nav_list">
         <li>
-          <a href="#">
+          <Link to='/'>
             <i className='bx bx-home'></i>
             <span className="links_name">Home</span>
-          </a>
+          </Link>
           <span className="tooltip">Home</span>
         </li>
         <li>
-          <a href="#">
+          <Link to='/Budgetcontent'>
             <i className='bx bx-grid-alt'></i>
-            <span className="links_name">Insumos</span>
-          </a>
-          <span className="tooltip">Insumos</span>
+            <span className="links_name">Budget</span>
+          </Link>
+          <span className="tooltip">Budget</span>
         </li>
         <li>
           <a href="#">

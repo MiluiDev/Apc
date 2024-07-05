@@ -1,10 +1,10 @@
 import React from "react";
-import './homecontent.css'
+import './Homecontent.css';
 
 function Homecontent() {
     return (
         <section className="home_content" role="main">
-        <div className='text'>Home Content1</div>
+        <div className='text'>Home Content</div>
         </section> 
     )
 }

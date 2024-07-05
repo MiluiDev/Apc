@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import Sidemenu from './Views/Sidemenu/Sidemenu';
-import Homecontent from './Views/Homecontent/Homecontent';
+import App from './Views/app/App';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Sidemenu />
-    <Homecontent />
+    <App />
   </React.StrictMode>
 );
 

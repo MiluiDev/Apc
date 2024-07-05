@@ -4,7 +4,7 @@ const {spawn} = require('child_process')
 
 // Configurar electron-reload para observar tanto el directorio actual como los archivos HTML en la carpeta 'views'
 const mainDir = __dirname;
-const viewsDir = path.resolve(__dirname, '..','views');
+const viewsDir = path.resolve(__dirname, '..','views');//Todo esto lo voy a eliminar porque no es necesario que ya estoy usando react.
 const scriptsDir = path.resolve(__dirname, '..',"public", 'js');  
 const stylesDir = path.resolve(__dirname, '..', "public", "css");    
 
@@ -18,16 +18,16 @@ require('electron-reload')([mainDir, viewsDir, scriptsDir, stylesDir], {
 //Atributos para la ventana Electron
 const createWindow = () => {
     const win = new BrowserWindow({
-        minWidth: 650,
+        minWidth: 900,
         minHeight: 650,
         webPreferences:{
             nodeIntegration: true,
             contextIsolation: false,
             },
     });
-    win.loadFile(path.join(__dirname, '..','frontend','react_app','build','index.html')) //esto es para cuando quiera ver el proyecto en produccion
+    // win.loadFile(path.join(__dirname, '..','frontend','react_app','build','index.html')) //esto es para cuando quiera ver el proyecto en produccion
     // win.loadFile(path.join(viewsDir, 'main.html')); //esto se hace si quiero cargar los archivos locales.
-    // win.loadURL('http://localhost:3000') //esto es para cuando se quieran abrir los puertos en para react.
+    win.loadURL('http://localhost:3000') //esto es para cuando se quieran abrir los puertos en para react.
     win.webContents.openDevTools();
     
 };
@@ -37,7 +37,7 @@ const createWindow = () => {
 app.on('ready', () => {
     // Iniciar el servidor FastAPI **PYTHON**
     fastapiProcess = spawn('uvicorn', ['app.main:app', '--host', '127.0.0.1', '--port', '5000'], {
-        env: { ...process.env, PYTHONPATH: './fastapi' },
+        env: { ...process.env, PYTHONPATH: './fastapi_app'},
         stdio: 'inherit'
     });
 
