@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import './Budgetcontent.css';
-import starIcon from '../../assets/budgetcontent_assets/icons/starIcon.svg'
-import trashIcon from '../../assets/budgetcontent_assets/icons/trashIcon.svg'
-
+import starIcon from '../../assets/budgetcontent_assets/icons/starIcon.svg';
+import trashIcon from '../../assets/budgetcontent_assets/icons/trashIcon.svg';
+import threeDotsIcon from '../../assets/budgetcontent_assets/icons/threeDotsIcon.svg';
 
 function Budgetcontent() {
     // Estado para manejar la selección de todos los elementos
@@ -10,11 +10,11 @@ function Budgetcontent() {
     // Estado para manejar la lista de elementos seleccionados
     const [selectedItems, setSelectedItems] = useState([]);
     // Lista de nombres de proyectos
-    const items = ['Customer Success', 'Dev / Directions']; // Agrega todos los nombres de los proyectos aquí SE AGREGARÁ UNA LÓGICA EN LA BASE DE DATOS QUE BUSQUE TODAS LAS INFORMACIONES.
+    const items_name = ['Customer Success', 'Dev / Directions', 'Pendejo no dura nada', 'Dev / Directions', 'Pendejo no dura nada', 'Dev / Directions', 'Pendejo no dura nada'];
 
     // useEffect para actualizar el estado de 'selectAll' basado en los elementos seleccionados
     useEffect(() => {
-        setSelectAll(selectedItems.length === items.length);
+        setSelectAll(selectedItems.length === items_name.length);
     }, [selectedItems]);
 
     // Función para manejar la selección/des-selección de todos los elementos
@@ -22,7 +22,7 @@ function Budgetcontent() {
         const isChecked = event.target.checked;
         setSelectAll(isChecked);
         if (isChecked) {
-            setSelectedItems(items); // Seleccionar todos los elementos
+            setSelectedItems(items_name); // Seleccionar todos los elementos
         } else {
             setSelectedItems([]); // Deseleccionar todos los elementos
         }
@@ -54,8 +54,7 @@ function Budgetcontent() {
                         type="checkbox" 
                         className="select_all" 
                         checked={selectAll} 
-                        onChange={handleSelectAll} 
-                    />
+                        onChange={handleSelectAll}/>
                     Select all
                 </label>
                 {selectedItems.length === 0 ? (
@@ -80,32 +79,42 @@ function Budgetcontent() {
                         <button className="action_button" title="Mark as favorite">
                             <img src={starIcon} alt="Mark as favorite" className="action-icon"/>
                         </button>
-                        <button className="action_button" title="Mark as favorite">
+                        <button className="action_button" title="Delete project">
                             <img src={trashIcon} alt="Delete project" className="action-icon"/>
                         </button>
-
                     </div>
                 )}
             </div>
 
             <div className="budget_list">
                 {/* Mapear sobre los elementos para crear la lista de proyectos */}
-                {items.map(item => (
+                {items_name.map(item => (
                     <div key={item} className="budget_item">
-                        {/* Checkbox para seleccionar o deseleccionar un elemento individual */}
-                        <input 
-                            type="checkbox" 
-                            className="select_project" 
-                            checked={selectedItems.includes(item)} 
-                            onChange={(e) => handleSelectItem(e, item)} 
-                        />
-                        <div className="project_details">
-                            <div className="project_name">{item}</div> {/*Aquí se va agregar la lógica de que se debe buscar en la base de datos todos los proyectos y mostrarlos. */}
-                            <div className="client_name">Everhour</div>
+                                                {/* Checkbox para seleccionar o deseleccionar un elemento individual */}
+
+                        <div className="left_section">
+                            {/* Checkbox para seleccionar o deseleccionar un elemento individual */}
+                            <input 
+                                type="checkbox" 
+                                className="select_project" 
+                                checked={selectedItems.includes(item)} 
+                                onChange={(e) => handleSelectItem(e, item)} 
+                            />
+                            <div className="project_details">
+                                <div className="project_name"> {/*Aquí se va agregar la lógica de que se debe buscar en la base de datos todos los proyectos y mostrarlos. */}
+                                    {item}
+                                    <div className="three_dots">
+                                        <img src={threeDotsIcon} alt="Options" className="three-dots-icon"/>
+                                    </div>
+                                </div>
+                                <div className="client_name">Everhour</div>
+                            </div>
                         </div>
-                        <div className="project_meta">
-                            <div className="project_status"> asdsa dasdsadasdsa3578hsssssss4800hsadas (75%)</div> {/* Esta es la descripcion. La descripcion de proyecto como maximo puede tener 46 caracteres */}
-                            <div className="project_type">Hourly</div>
+                        <div className="right_section">
+                            <div className="project_meta">
+                                <div className="project_status"> asdsa dasdsadasdsa3578hsssssss4800hsadas (75%)</div> {/* Esta es la descripción del proyecto. La descripcion de proyecto como maximo puede tener 46 caracteres */}
+                                <div className="project_type">Hourly</div>
+                            </div>
                         </div>
                     </div>
                 ))}

@@ -82,26 +82,42 @@
     justify-content: space-between;
     align-items: center;
     transition: box-shadow 0.3s ease;
-    gap: 10px; /* Espacio entre el checkbox y el resto del contenido */
+    gap: 10px;
+    position: relative; /* Espacio entre el checkbox y el resto del contenido */
 }
 
 .budget_item:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.left_section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .project_details {
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Permitir que este div ocupe el espacio disponible */
 }
 
 .project_name {
+    display: flex;
+    align-items: center;
     font-weight: bold;
+    position: relative;
 }
 
 .client_name {
     font-size: 14px;
     color: #777;
+}
+
+.right_section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
 }
 
 .project_meta {
@@ -135,9 +151,23 @@
     width: 20px;
     height: 20px;
     fill: currentColor;
-    padding:2px;
+    padding: 2px;
 }
 
 .actions .action_button:hover .action-icon {
     fill: #555; /* Cambia el color al hacer hover según tus preferencias */
+}
+
+.three_dots {
+    cursor: pointer;
+    display: none;
+    margin-left: 10px;
+}
+
+.project_name:hover .three_dots {
+    display: flex;
+}
+
+.three-dots-icon {
+    width: 15px;
 }
