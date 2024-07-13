@@ -14,18 +14,17 @@ function Budgetcontent() {
     // Estado para manejar el panel de detalles
     const [isPanelOpen, setIsPanelOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
-    
     // Estado para manejar el panel de creación
     const [isCreatePanelOpen, setIsCreatePanelOpen] = useState(false);
     const [newProject, setNewProject] = useState({ project_name: '', client_description: '', project_type: '', client_name: '' });
-
     // Estado para manejar los cambios en el formulario de edición
     const [editProject, setEditProject] = useState({ project_name: '', client_description: '', project_type: '', client_name: '' });
-
     // Estado para manejar la lista de proyectos de presupuesto obtenidos de la base de datos
     const [projects, setProjects] = useState([]);
     // Estado para manejar la barra de búsqueda
     const [searchTerm, setSearchTerm] = useState('');
+    // Estado para manejar los mensajes de error
+    const [errors, setErrors] = useState({});
 
     const detailPanelRef = useRef(null);
     const createPanelRef = useRef(null);
@@ -103,14 +102,45 @@ function Budgetcontent() {
         setIsCreatePanelOpen(!isCreatePanelOpen);
     };
 
+    // Función para validar los campos de entrada
+    const validateInput = (name, value) => {
+        let error = '';
+        if (name === 'project_name') {
+            if (!value) {
+                error = 'Project name is required';
+            } else if (value.length < 6) {
+                error = 'Project name must be at least 6 characters';
+            } else if (value.length > 36) {
+                error = 'Project name must be less than 36 characters';
+            }
+        } else if (name === 'client_description') {
+            if (value.length > 56) {
+                error = 'Client description must be less than 56 characters';
+            }
+        }
+        return error;
+    };
+
     // Función para manejar los cambios en los inputs de creación y edición
     const handleInputChange = (e, setFunction) => {
         const { name, value } = e.target;
         setFunction(prevState => ({ ...prevState, [name]: value }));
+        setErrors(prevErrors => ({ ...prevErrors, [name]: validateInput(name, value) }));
     };
 
     // Función para crear un nuevo proyecto
     const handleCreateProject = async () => {
+        const projectErrors = {};
+        Object.keys(newProject).forEach(key => {
+            const error = validateInput(key, newProject[key]);
+            if (error) {
+                projectErrors[key] = error;
+            }
+        });
+        if (Object.keys(projectErrors).length > 0) {
+            setErrors(projectErrors);
+            return;
+        }
         try {
             const response = await axios.post('http://localhost:5000/create_project/', newProject);
             setProjects([...projects, response.data]);
@@ -136,6 +166,17 @@ function Budgetcontent() {
 
     // Función para actualizar un proyecto existente
     const handleUpdateProject = async () => {
+        const projectErrors = {};
+        Object.keys(editProject).forEach(key => {
+            const error = validateInput(key, editProject[key]);
+            if (error) {
+                projectErrors[key] = error;
+            }
+        });
+        if (Object.keys(projectErrors).length > 0) {
+            setErrors(projectErrors);
+            return;
+        }
         try {
             const response = await axios.put(`http://localhost:5000/update_project/${editProject.project_id}`, editProject);
             setProjects(projects.map(project => (project.project_id === editProject.project_id ? response.data : project)));
@@ -235,19 +276,43 @@ function Budgetcontent() {
                 <h2>Edit Project</h2>
                 <label>
                     Project Name:
-                    <input type="text" name="project_name" value={editProject.project_name} onChange={(e) => handleInputChange(e, setEditProject)} />
+                    <input 
+                        type="text" 
+                        name="project_name" 
+                        value={editProject.project_name} 
+                        onChange={(e) => handleInputChange(e, setEditProject)} 
+                        onBlur={(e) => setErrors(prevErrors => ({ ...prevErrors, [e.target.name]: validateInput(e.target.name, e.target.value) }))}
+                    />
+                    {errors.project_name && <p className="error">{errors.project_name}</p>}
                 </label>
                 <label>
                     Client Description:
-                    <input type="text" name="client_description" value={editProject.client_description} onChange={(e) => handleInputChange(e, setEditProject)} />
+                    <input 
+                        type="text" 
+                        name="client_description" 
+                        value={editProject.client_description} 
+                        onChange={(e) => handleInputChange(e, setEditProject)} 
+                        onBlur={(e) => setErrors(prevErrors => ({ ...prevErrors, [e.target.name]: validateInput(e.target.name, e.target.value) }))}
+                    />
+                    {errors.client_description && <p className="error">{errors.client_description}</p>}
                 </label>
                 <label>
                     Project Type:
-                    <input type="text" name="project_type" value={editProject.project_type} onChange={(e) => handleInputChange(e, setEditProject)} />
+                    <input 
+                        type="text" 
+                        name="project_type" 
+                        value={editProject.project_type} 
+                        onChange={(e) => handleInputChange(e, setEditProject)} 
+                    />
                 </label>
                 <label>
                     Client Name:
-                    <input type="text" name="client_name" value={editProject.client_name} onChange={(e) => handleInputChange(e, setEditProject)} />
+                    <input 
+                        type="text" 
+                        name="client_name" 
+                        value={editProject.client_name} 
+                        onChange={(e) => handleInputChange(e, setEditProject)} 
+                    />
                 </label>
                 <button onClick={handleUpdateProject}>Update Project</button>
             </div>
@@ -256,19 +321,43 @@ function Budgetcontent() {
                 <h2>Create New Project</h2>
                 <label>
                     Project Name:
-                    <input type="text" name="project_name" value={newProject.project_name} onChange={(e) => handleInputChange(e, setNewProject)} />
+                    <input 
+                        type="text" 
+                        name="project_name" 
+                        value={newProject.project_name} 
+                        onChange={(e) => handleInputChange(e, setNewProject)} 
+                        onBlur={(e) => setErrors(prevErrors => ({ ...prevErrors, [e.target.name]: validateInput(e.target.name, e.target.value) }))}
+                    />
+                    {errors.project_name && <p className="error">{errors.project_name}</p>}
                 </label>
                 <label>
                     Client Description:
-                    <input type="text" name="client_description" value={newProject.client_description} onChange={(e) => handleInputChange(e, setNewProject)} />
+                    <input 
+                        type="text" 
+                        name="client_description" 
+                        value={newProject.client_description} 
+                        onChange={(e) => handleInputChange(e, setNewProject)} 
+                        onBlur={(e) => setErrors(prevErrors => ({ ...prevErrors, [e.target.name]: validateInput(e.target.name, e.target.value) }))}
+                    />
+                    {errors.client_description && <p className="error">{errors.client_description}</p>}
                 </label>
                 <label>
                     Project Type:
-                    <input type="text" name="project_type" value={newProject.project_type} onChange={(e) => handleInputChange(e, setNewProject)} />
+                    <input 
+                        type="text" 
+                        name="project_type" 
+                        value={newProject.project_type} 
+                        onChange={(e) => handleInputChange(e, setNewProject)} 
+                    />
                 </label>
                 <label>
                     Client Name:
-                    <input type="text" name="client_name" value={newProject.client_name} onChange={(e) => handleInputChange(e, setNewProject)} />
+                    <input 
+                        type="text" 
+                        name="client_name" 
+                        value={newProject.client_name} 
+                        onChange={(e) => handleInputChange(e, setNewProject)} 
+                    />
                 </label>
                 <button onClick={handleCreateProject}>Create Project</button>
             </div>
