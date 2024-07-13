@@ -1,11 +1,11 @@
-import React,{ useEffect } from 'react';
-import './Sidemenu.css'
-import profileimg from '../../assets/img/foto-test.png'
+import React, { useEffect } from 'react';
+import './Sidemenu.css';
+import profileimg from '../../assets/img/foto-test.png';
+import settings from '../../assets/sidemenu_icons/settings.svg';
 import { Link } from 'react-router-dom';
 
-
 function Sidemenu() {
-  //SCRIPTS PARA EL SIDEMENU
+  // SCRIPTS PARA EL SIDEMENU
   useEffect(() => {
     // CONFIGURANDO LA EXPANSIÓN DEL SIDEBAR
     const btn = document.querySelector('#btn');
@@ -58,13 +58,6 @@ function Sidemenu() {
           </Link>
           <span className="tooltip">Budget</span>
         </li>
-        <li>
-          <a href="#">
-            <i className='bx bx-cog'></i>
-            <span className="links_name">Settings</span>
-          </a>
-          <span className="tooltip">Settings</span>
-        </li>
       </ul>
       
       {/*  EN ESTA ZONA EL PERFIL Y LA INFORMACION ACERCA DE SU PLAN ESTARÁ DISPONIBLE */}
@@ -77,12 +70,11 @@ function Sidemenu() {
               <div className="job">Plan actual: Basic</div>
             </div>
           </div>
-          <i className='bx bxs-bolt' style={{color: '#484646'}} id="log_out"></i>
+          <img src={settings} alt="Settings" id="log_out" />
         </div>
       </div>
     </div>
   );
 }
 
-
-  export default Sidemenu;
+export default Sidemenu;

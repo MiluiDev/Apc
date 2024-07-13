@@ -265,9 +265,9 @@ body{
 .profile #log_out{
     position: absolute; /* Más adelante pienso cambiarlo y ponerlo en settings.*/
     left: 50%;
-    bottom: 5px;
+    bottom: 12px;
     transform: translateX(-50%);
-    min-width: 50px;
+    min-width: 10px;
     line-height: 50px;
     font-size: 20px;
     border-radius: 12px;
@@ -278,6 +278,4 @@ body{
 .sidebar.active .profile #log_out{
     left:88%;
 }
-
-
 
