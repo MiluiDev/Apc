@@ -1,3 +1,4 @@
+// Sidemenu.js
 import React, { useEffect } from 'react';
 import './Sidemenu.css';
 import profileimg from '../../assets/img/foto-test.png';
@@ -63,13 +64,13 @@ function Sidemenu() {
       {/*  EN ESTA ZONA EL PERFIL Y LA INFORMACION ACERCA DE SU PLAN ESTARÁ DISPONIBLE */}
       <div className="profile_content">
         <div className="profile">
-          <div className="profile_details">
+          <Link to="/plan-modal" className="profile_details">
             <img src={profileimg} alt="profile-img"/>
             <div className="name_job">
               <div className="name">LuisM</div>
               <div className="job">Plan actual: Basic</div>
             </div>
-          </div>
+          </Link>
           <img src={settings} alt="Settings" id="log_out" />
         </div>
       </div>

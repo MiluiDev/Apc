@@ -232,6 +232,8 @@ body{
 .sidebar.active .profile .profile_details{
     opacity: 1;
     pointer-events: auto; 
+    text-decoration: none;
+    color: black;
 }
 
 .profile .profile_details img{
@@ -278,4 +280,5 @@ body{
 .sidebar.active .profile #log_out{
     left:88%;
 }
+
 
