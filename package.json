@@ -22,9 +22,13 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.1.0",
+    "axios": "^1.7.2",
     "electron-store": "^9.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.24.0"
+    "react-router-dom": "^6.24.0",
+    "react-spreadsheet": "^0.9.5",
+    "scheduler": "^0.23.2"
   }
 }

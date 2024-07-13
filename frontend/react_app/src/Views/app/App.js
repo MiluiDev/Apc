@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidemenu from '../Sidemenu/Sidemenu'; // Assegúrate de ajustar las rutas de importación según sea necesario
 import Homecontent from '../Homecontent/Homecontent';
 import Budgetcontent from '../Budgetcontent/Budgetcontent';
+import Budgetproject from '../Budgetcontent/Budgetproject/Budgetproject';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homecontent/>}/>
         <Route path="/budgetcontent" element={<Budgetcontent/>}/>
+        <Route path="/budgetproject" element={<Budgetproject/>}/>
       </Routes>
     </Router>
   </div>);

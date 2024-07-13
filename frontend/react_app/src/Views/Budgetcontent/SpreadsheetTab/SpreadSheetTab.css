@@ -1,0 +1,32 @@
+.spreadsheet-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Asegura que ocupe toda la altura disponible del contenedor padre */
+  padding: 10px;
+  box-sizing: border-box; /* Incluye el padding en el cálculo de la altura */
+}
+
+.spreadsheet-wrapper {
+  flex: 1; /* Ocupa todo el espacio disponible dejado por los botones */
+  overflow: auto; /* Permite el desplazamiento dentro del contenedor */
+  min-height: 0; /* Asegura que no se expanda más allá del espacio disponible */
+}
+
+.react-spreadsheet {
+  width: 100%; /* Ajusta la hoja de cálculo al contenedor */
+}
+
+.spreadsheet-controls {
+  padding: 10px;
+  background-color: white;
+  position: sticky; /* Se queda pegado en la parte inferior */
+  bottom: 0;
+  z-index: 10; /* Asegura que esté sobre otros elementos */
+}
+
+.spreadsheet-controls button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}

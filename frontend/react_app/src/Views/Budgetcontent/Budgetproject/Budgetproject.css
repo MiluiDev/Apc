@@ -1,0 +1,13 @@
+.budget_project_content {
+    position: absolute; /* cada section debe tener un nombreSection_content*/
+    height: 100%;
+    width: calc(100% - 78px);
+    left: 78px;
+    transition: all 0.5s ease;
+}
+
+
+.sidebar.active ~ .budget_project_content{
+    width: calc(100% - 240px);
+    left:240px;
+}
