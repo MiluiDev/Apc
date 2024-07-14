@@ -1,9 +1,22 @@
 // Sidemenu.js
 import React, { useEffect } from 'react';
 import './Sidemenu.css';
-import profileimg from '../../assets/img/foto-test.png';
 import settings from '../../assets/sidemenu_icons/settings.svg';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import {jwtDecode} from 'jwt-decode';
+
+// OBTENER LAS COOKIES. 
+const token = Cookies.get('token');
+let payload = {};
+
+if (token) {
+  try {
+    payload = jwtDecode(token);
+  } catch (error) {
+    console.error('Error decoding token:', error);
+  }
+}
 
 function Sidemenu() {
   // SCRIPTS PARA EL SIDEMENU
@@ -65,9 +78,9 @@ function Sidemenu() {
       <div className="profile_content">
         <div className="profile">
           <Link to="/plan-modal" className="profile_details">
-            <img src={profileimg} alt="profile-img"/>
+            <img src={payload.picture} alt="profile-img"/>
             <div className="name_job">
-              <div className="name">LuisM</div>
+              <div className="name">{payload.given_name}</div>
               <div className="job">Plan actual: Basic</div>
             </div>
           </Link>
