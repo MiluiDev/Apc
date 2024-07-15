@@ -7,8 +7,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware import Middleware
 from starlette.middleware.sessions import SessionMiddleware
 from controllers.budget_content import budgetContent_controller
-from controllers.login_content import loginContent_controller
-
+from controllers.budget_content.budgetproject import supplysection_controller
 # Añadir el directorio de fastapi al PYTHONPATH para que podamos ejecutar 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
@@ -20,7 +19,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 # FastAPI
 app = FastAPI()
 app.include_router(budgetContent_controller.router)
-
+app.include_router(supplysection_controller.router)
 
 # CORS CONFIGURATION
 app.add_middleware(SessionMiddleware, secret_key="some-random-string")  # Cambia "some-random-string" por una clave secreta segura

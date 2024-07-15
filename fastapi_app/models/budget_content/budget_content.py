@@ -17,6 +17,11 @@ class ProjectCreateBaseModel(BaseModel):
     project_type: Annotated[str, Field(max_length=50)]
     client_name: Annotated[str, Field(max_length=50)]
 
+class SupplyCreateBaseModel(BaseModel):
+    supply_name: Annotated[str, Field(max_length=50)]
+    supply_code: Annotated[str, Field(max_length=50)]
+    price_per_unit: float
+    description: Annotated[str,Field(max_length=50)]
 
 # Definir la metaclase combinada
 class CombinedMeta(DeclarativeMeta, ABCMeta):
@@ -86,17 +91,16 @@ class Supply(Base, BudgetComponent):
     __tablename__ = "supply"
     supply_id = Column(Integer, primary_key=True)
     supply_name = Column(CHAR, nullable=False)
-    supply_type = Column(CHAR, nullable=True)
+    supply_code = Column(CHAR, nullable=False)
     price_per_unit = Column(Float, nullable=True)
-    project_id = Column(Integer, ForeignKey('budgetproject.project_id'))
+    description= Column(CHAR, nullable=True)
 
-    project = relationship('BudgetProject', backref='supplies')
 
-    def __init__(self, supply_name, supply_type, price_per_unit, project_id):
+    def __init__(self, supply_name, supply_code, price_per_unit, description):
         self.supply_name = supply_name
-        self.supply_type = supply_type
+        self.supply_code = supply_code
         self.price_per_unit = price_per_unit
-        self.project_id = project_id
+        self.description= description 
     
     def add(self, component: BudgetComponent) -> None:
         pass

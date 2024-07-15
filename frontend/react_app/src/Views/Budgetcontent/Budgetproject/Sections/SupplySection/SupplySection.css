@@ -1,0 +1,138 @@
+.supplies-section {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.search-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.create-button {
+    background-color: #28a745; /* Color verde */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interior */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de la fuente */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.create-button:hover {
+    background-color: #218838; /* Color verde oscuro al pasar el ratón por encima */
+}
+
+.table-container {
+    overflow-x: auto;
+    max-height: 65vh;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.supply-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.supply-table th,
+.supply-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.supply-table th {
+    background-color: #f4f4f4;
+    cursor: pointer;
+}
+
+.supply-table th:hover {
+    background-color: #eaeaea;
+}
+
+.supply-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.supply-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.create-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.create-panel.open {
+    transform: translateX(0);
+}
+
+.create-panel label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.create-panel input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 5px; /* Bordes redondeados del input */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del input */
+}
+
+.create-panel .create-button {
+    background-color: #007bff; /* Color azul */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interior */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de la fuente */
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+    display: block; /* Asegura que el botón se muestre como bloque */
+    width: 100%; /* El botón ocupa todo el ancho disponible */
+}
+
+.create-panel .create-button:hover {
+    background-color: #0056b3; /* Color azul oscuro al pasar el ratón por encima */
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.buttom-supply{
+    background-color: #28a745;
+}
