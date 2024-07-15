@@ -1,4 +1,3 @@
-// Sidemenu.js
 import React, { useEffect } from 'react';
 import './Sidemenu.css';
 import settings from '../../assets/sidemenu_icons/settings.svg';
@@ -47,6 +46,13 @@ function Sidemenu() {
         tooltip.style.opacity = '0';
       });
     });
+
+    // MANEJADOR DE LOG OUT
+    const logOutButton = document.querySelector('#log_out');
+    logOutButton.onclick = () => {
+      Cookies.remove('token'); // Eliminar la cookie
+      window.location.reload(); // Recargar la página
+    };
   }, []);
 
   return (

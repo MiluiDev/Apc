@@ -30,6 +30,7 @@
     "axios": "^1.7.2",
     "cors": "^2.8.5",
     "electron-store": "^9.0.0",
+    "firebase": "^10.12.3",
     "gapi-script": "^1.2.0",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",

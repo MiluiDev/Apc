@@ -11,13 +11,13 @@ function Budgetproject() {
                     <SupplySection />{/*pienso que el contenido esté en otro componente.*/}
                 </Tab>
                 <Tab label="General Items">
-                    <div>Contenido de Partidas </div>
+                    <div>Demo is just limited to Supply. </div>
                 </Tab>
                 <Tab label="Items">
-                    <div>Contenido de Partidas</div>
+                    <div>Demo is just limited to Supply.</div>
                 </Tab>
                 <Tab label="Budget">
-                    <div>Contenido de Presupuesto</div>
+                    <div>Demo is just limited to Supply.</div>
                 </Tab>
             </BudgetTabs>
         </section>
