@@ -27,7 +27,8 @@ function LoginContent() {
       // Inicializar Google Sign-In
       /* global google */
       google.accounts.id.initialize({
-        client_id: "335667610048-bp22v6go6j5nqn7u70460c62k5o9bvf1.apps.googleusercontent.com",
+        client_id: "example.apps.googleusercontent.com", /*Use this by accessing cloud.google.com and request a client_id, 
+        replacing it with example.apps.googleusercontent.com. Finally, make sure to load it into an environment variable. */
         callback: handleCallBackResponse
       });
       google.accounts.id.renderButton(
