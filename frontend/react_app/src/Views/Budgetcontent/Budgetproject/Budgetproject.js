@@ -10,13 +10,13 @@ function Budgetproject() {
                 <Tab label="Supply">
                     <SupplySection />{/*pienso que el contenido esté en otro componente.*/}
                 </Tab>
-                <Tab label="Partidas Generales">
-                    <div>Contenido de Partidas Generales</div>
+                <Tab label="General Items">
+                    <div>Contenido de Partidas </div>
                 </Tab>
-                <Tab label="Partidas">
+                <Tab label="Items">
                     <div>Contenido de Partidas</div>
                 </Tab>
-                <Tab label="Presupuesto">
+                <Tab label="Budget">
                     <div>Contenido de Presupuesto</div>
                 </Tab>
             </BudgetTabs>

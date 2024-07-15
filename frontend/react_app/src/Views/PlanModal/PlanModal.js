@@ -6,7 +6,7 @@ function PlanModal() {
   const navigate = useNavigate();
 
   const handleClose = () => {
-    navigate(-1); // Navega a la ruta anterior
+    navigate(-1); // Navigate to the previous route
   };
 
   return (
@@ -19,12 +19,11 @@ function PlanModal() {
             <h3>Basic</h3>
             <p className="price">Free</p>
             <ul>
-              <li>1 Website</li>
-              <li>10 GB Disk Space</li>
-              <li>Free Email Address</li>
-              <li>Basic Web Builder</li>
-              <li>No SSL Certificate</li>
-              <li>Limited Support</li>
+              <li>✅Create supply list</li>
+              <li>✅Access to create Budget projects</li>
+              <li>❌ Access to General Items</li>
+              <li>❌ Access to Items</li>
+              <li>❌ Access to Budget</li>
             </ul>
             <div className="current-plan">Current Plan</div>
           </div>
@@ -32,12 +31,11 @@ function PlanModal() {
             <h3>Advanced</h3>
             <p className="price">$29/month</p>
             <ul>
-              <li>100 Websites</li>
-              <li>50 GB Disk Space</li>
-              <li>Free Email Address</li>
-              <li>Advanced Web Builder</li>
-              <li>Free SSL Certificate</li>
-              <li>Unlimited Support</li>
+              <li>✅Create supply list</li>
+              <li>✅Access to create Budget projects</li>
+              <li>✅ Access to General Items</li>
+              <li>✅ Access to Items</li>
+              <li>✅ Access to Budget</li>
             </ul>
             <button className="plan-button">Soon</button>
           </div>
@@ -45,12 +43,11 @@ function PlanModal() {
             <h3>Premium</h3>
             <p className="price">$49/month</p>
             <ul>
-              <li>100 Websites</li>
-              <li>100 GB Disk Space</li>
-              <li>Free Email Address</li>
-              <li>Advanced Web Builder</li>
-              <li>Free SSL Certificate</li>
-              <li>Unlimited Support</li>
+              <li>✅Access to all tabs</li>
+              <li>✅Online database</li>
+              <li>✅Get updates before others</li>
+              <li>✅Advanced Analytics</li>
+              <li>✅Dedicated 24/7 support and data recovery</li>
             </ul>
             <button className="plan-button">Soon</button>
           </div>
