@@ -42,3 +42,13 @@ Python
 SQLite (or any other preferred database)
 
 ![image](https://github.com/user-attachments/assets/34b9d0a6-4cf5-4f29-8d5c-6778813bf3b2)
+
+
+
+I will be updating you with new changes and improvements in the application. Below you can see the application features and the recent updates.
+
+
+
+![image](https://github.com/user-attachments/assets/d6292493-058a-45fd-b4d7-e90e9885de66)
+
+
