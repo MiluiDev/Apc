@@ -4,7 +4,7 @@ Apc 2024
 Supply Management Application
 This project is a Supply Management Application built using React for the front-end and FastAPI for the back-end. It provides functionalities for managing supplies, including creating, viewing, updating, and deleting supplies. The application is designed to be simple and user-friendly, with features such as search and bulk selection.
 
-Features
+Features ->
 View Supplies: View a list of all supplies with details like supply code, supply name, price per unit, and description.
 Search Supplies: Search supplies by name or code using a search bar.
 Create Supply: Add new supplies with validation for input fields.
@@ -18,23 +18,6 @@ Bulk Selection: Select all or multiple supplies for bulk actions.
 
 Supply Management Application
 This project is a Supply Management Application built using React for the front-end and FastAPI for the back-end. It provides functionalities for managing supplies, including creating, viewing, updating, and deleting supplies. The application is designed to be simple and user-friendly, with features such as search and bulk selection.
-
-Features
-View Supplies: View a list of all supplies with details like supply code, supply name, price per unit, and description.
-Search Supplies: Search supplies by name or code using a search bar.
-Create Supply: Add new supplies with validation for input fields.
-Update Supply: Edit details of existing supplies.
-Delete Supply: Delete selected supplies individually or in bulk.
-Bulk Selection: Select all or multiple supplies for bulk actions.
-Project Supplies: Associate new supplies with projects to facilitate material takeoff (cubication). Please note that cubication features are not available in this demo, nor are the options to purchase plans.
-Technologies Used
-Front-end: React, HTML, CSS
-Back-end: FastAPI
-Database: SQLite (configurable to other databases)
-State Management: React useReducer, useState
-HTTP Client: Axios
-Getting Started
-To get a local copy up and running, follow these simple steps.
 
 Prerequisites
 Node.js
